@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage ("git checkout") {
+            steps {
+            git 'https://github.com/ranikote/simple-nodejs-app.git'
+        }
+        
+    }
+    
+        stage ("Install npm packages") {
+            steps {
+            // Install all pacakges in package.json
+             sh 'npm install'
+             //(Installs specfic dependency)//
+            sh 'npm install ejs'
+            sh 'npm install express ' 
+            sh 'npm install nodemon'
+            sh 'npm install request'
+             //(Installs specfic dependency version)//
+            sh 'npm install ejs@3.1.10'
+            sh 'npm install express@4.17.3'
+            sh 'npm install node-fetch@2.6.7'
+            sh ' npm install nodemon@2.0.20'
+            sh 'npm install request@2.88.2'
+
+         }
+        
+        }
+    
+    }
+         
+  
+  }
